@@ -33,7 +33,9 @@
         (?h "As HTML file" org-coleslaw-export-to-html)))
   :translate-alist
   '((template . org-coleslaw-template)
-    (inner-template . org-coleslaw-inner-template)))
+    (inner-template . org-coleslaw-inner-template))
+  :options-alist
+  '((:coleslaw-tags "COLESLAW_TAGS" nil "")))
 
 (defun org-coleslaw-template (contents info)
   "Return complete document string after HTML conversion.
@@ -54,11 +56,13 @@ holding export options."
 
 (defun org-coleslaw--front-matter (info)
   (let ((title (org-export-data (plist-get info :title) info))
-        (date (org-export-data (plist-get info :date) info)))
+        (date (org-export-data (plist-get info :date) info))
+        (tags (org-export-data (plist-get info :coleslaw-tags) info)))
     (concat
      ";;;;;\n"
      "title: " title "\n"
      "date: " date "\n"
+     "tags: " tags "\n"
      "format: html\n"
      ";;;;;\n")))
 
