@@ -1,0 +1,1 @@
+A simple exporter for Coleslaw. Mostly copied from ox-jekyll.
