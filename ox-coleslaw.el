@@ -100,7 +100,7 @@ holding export options."
             (org-export-to-file
                 'coleslaw ,file nil ,subtreep ,visible-only ,body-only ',ext-plist)))
       (org-export-to-file
-          'coleslaw file nil subtreep visible-only bod-only ext-plist))))
+          'coleslaw file nil subtreep visible-only body-only ext-plist))))
 
 (defun org-coleslaw-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML with front matter.
