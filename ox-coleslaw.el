@@ -44,12 +44,13 @@ holding export options."
    (org-coleslaw--front-matter info)
    contents))
 
-(defun org-coleslaw-inner-template (contents _info)
+(defun org-coleslaw-inner-template (contents info)
   "Return body of document string after HTML conversion.
 
 CONTENTS is the transcoded contents string.  INFO is a plist
 holding export options."
-  contents)
+  (concat contents
+          (org-html-footnote-section info)))
 
 (defun org-coleslaw--front-matter (info)
   (let ((title (org-export-data (plist-get info :title) info))
